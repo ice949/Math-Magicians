@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# NATIONAL INNOVATION INNITIATIVE
+# Math Magicians
 
-> A website for the National Innovationa Fair in Zambia, where bright minds bring there Bussiness promising innovations and pitch them to investors and donors for funding.
+> This is the first project of the Math Magicians application
 
 ## Built With
 
@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[National Innovation Fair Zambia](https://ice949.github.io/First-Capstone/)
+[Math Magicians](https://ice949.github.io/Math-Magicians/)
 
 ## GETTING STARTED
 
