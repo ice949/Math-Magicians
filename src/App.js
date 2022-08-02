@@ -10,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-        <Calculator name="Mavericks" />
+      <Calculator name="Mavericks" />
     );
   }
 }
