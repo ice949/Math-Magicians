@@ -1,19 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+import Calculator from './components/Calculator';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to My Math Magicians app</h2>
-      </div>
-      <p className="App-intro">
-        Development In progress and will be available for use soon #Ice-berg
-      </p>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <Calculator name="Mavericks" />
+    );
+  }
 }
 
 export default App;
