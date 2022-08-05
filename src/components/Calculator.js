@@ -1,50 +1,52 @@
-import React from 'react';
 import './Calculator.css';
+import React from 'react';
+import calculate from '../Logic/calculate';
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      total: '',
+      operation: '',
+      next: '',
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = (e) => {
+    this.setState((obj) => calculate(obj, e.target.innerText));
   }
 
   render() {
+    const { total, operation, next } = this.state;
     return (
-      <div className="calculator">
-        <div className="calculator-screen">
-          <h2>0</h2>
-        </div>
-        <div className="calculator-body">
-          <div className="nums">
-            <ul className="top-ones">
-              <li className="ind-btn">AC</li>
-              <li className="ind-btn">+/-</li>
-              <li className="ind-btn">%</li>
-              <li className="ind-btn">7</li>
-              <li className="ind-btn">8</li>
-              <li className="ind-btn">9</li>
-              <li className="ind-btn">4</li>
-              <li className="ind-btn">5</li>
-              <li className="ind-btn">6</li>
-              <li className="ind-btn">1</li>
-              <li className="ind-btn">2</li>
-              <li className="ind-btn">3</li>
-            </ul>
-            <ul className="bottom-ones">
-              <li className="ind-btn2">0</li>
-              <li className="ind-btn">.</li>
-            </ul>
-          </div>
-          <ul className="operators">
-            <li className="ind-btn3">÷</li>
-            <li className="ind-btn3">×</li>
-            <li className="ind-btn3">-</li>
-            <li className="ind-btn3">+</li>
-            <li className="ind-btn3">=</li>
-          </ul>
-        </div>
-      </div>
+      <main>
+        <section className="calculator">
+          <p className="input">{(total || '') + (operation || '') + (next || '') || 0 }</p>
+          <button type="button" id="AC" onClick={this.handleClick}>AC</button>
+          <button type="button" id="+/-" onClick={this.handleClick}>+/-</button>
+          <button type="button" id="%" onClick={this.handleClick}>%</button>
+          <button className="symbol" type="button" id="&divide;" onClick={this.handleClick}>&divide;</button>
+          <button type="button" id="7" onClick={this.handleClick}>7</button>
+          <button type="button" id="8" onClick={this.handleClick}>8</button>
+          <button type="button" id="9" onClick={this.handleClick}>9</button>
+          <button className="symbol" type="button" id="x" onClick={this.handleClick}>x</button>
+          <button type="button" id="4" onClick={this.handleClick}>4</button>
+          <button type="button" id="5" onClick={this.handleClick}>5</button>
+          <button type="button" id="6" onClick={this.handleClick}>6</button>
+          <button className="symbol" type="button" id="-" onClick={this.handleClick}>-</button>
+          <button type="button" id="1" onClick={this.handleClick}>1</button>
+          <button type="button" id="2" onClick={this.handleClick}> 2 </button>
+          <button type="button" id="3" onClick={this.handleClick}> 3 </button>
+          <button className="symbol" type="button" id="+" onClick={this.handleClick}>+</button>
+          <button className="zero" type="button" id="0" onClick={this.handleClick}>0</button>
+          <button type="button" id="." onClick={this.handleClick}>.</button>
+          <button className="symbol" type="button" id="=" onClick={this.handleClick}>=</button>
+        </section>
+      </main>
     );
   }
 }
 
+Calculator.defaultProps = { total: 0, operations: '', next: 0 };
 export default Calculator;
