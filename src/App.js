@@ -1,18 +1,29 @@
-import './App.css';
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Calculator from './components/Calculator';
+import Home from './pages/Home';
+import Quote from './pages/Quote';
+import Navbar from './components/Navbar';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const App = () => (
+  <Router>
+    <Navbar />
+    <Routes>
+      <Route
+        path="/calculator"
+        element={(
+          <div className="App">
+            {' '}
+            <Calculator />
+            {' '}
+          </div>
+)}
+      />
+      <Route exact path="/" element={<Home />} />
+      <Route path="/quote" element={<Quote />} />
 
-  render() {
-    return (
-      <Calculator name="Mavericks" />
-    );
-  }
-}
+    </Routes>
+  </Router>
+);
 
 export default App;
